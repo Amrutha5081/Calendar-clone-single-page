@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.67, maximum-scale=0.67, shrink-to-fit=yes">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+     body {
+                -moz-transform: scale(0.60);
+                -webkit-transform: scale(0.60);
+                -o-transform: scale(0.60);
+                -ms-transform: scale(0.60);
+                transform: scale(0.60);
+            }
+.navbar-custom {
+  background-color: #979797;
+  margin-top: 10px; 
+}
+  @media (max-width: 576px) {
+    .navbar-custom {
+      font-size: 20px;
+    }
+  }
+
+    .smaller-heading {
+      font-size: 23px;
+    }
+    
+    .larger-buttons .form-check-input {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border: 2px solid black;
+    }
+    
+    @media (max-width: 576px) {
+      .larger-buttons .form-check-input {
+        width: 30px;
+        height: 30px;
+        
+      }
+    }
+    .form-check {
+        font-size: 20px;
+    }
+    .or-line {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .or-line::before,
+    .or-line::after {
+      content: '';
+      flex-grow: 1;
+      border-bottom: 2px solid black;
+    }
+    
+    .or-text {
+      padding: 0 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .input-group-append .input-group-text {
+      cursor: pointer;
+    }
+    
+    #datepickerContainer .form-control {
+      border: 1px solid #454546;
+      border-radius: 0.25rem;
+    }
+    
+    #datepickerContainer .input-group-append .input-group-text {
+      border: 1px solid #454546;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+    
+    #datepickerContainer .input-group-append .input-group-text i {
+      color: #6c757d;
+    }
+
+ .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .flex-item {
+    flex: 0 0 calc(25% - 20px);
+    margin-bottom: 20px;
+    padding: 25px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #d7e5f6;
+  }
+
+  @media (max-width: 1200px) {
+    .flex-item {
+      flex: 0 0 calc(33.33% - 20px);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .flex-item {
+      flex: 0 0 calc(50% - 20px);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .flex-item {
+      flex: 0 0 calc(100% - 20px);
+    }
+  }
+
+  @media (max-width: 320px) {
+    .flex-item {
+      flex-basis: 100%;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-dark navbar-custom">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1" style="color: black; font-size: 35px;">Available slots for 45 mins meeting</span>
+      </div>
+    </nav>
+      
+    <h2 class="mt-4 smaller-heading">For shorter slots, select the duration below:</h2>
+    <div class="d-flex flex-wrap justify-content-between align-items-center larger-buttons">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="slotDuration" id="slot40" value="40">
+        <label class="form-check-label" for="slot40">40 min</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="slotDuration" id="slot30" value="30">
+        <label class="form-check-label" for="slot30">30 min</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="slotDuration" id="slot25" value="25">
+        <label class="form-check-label" for="slot25">25 min</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="slotDuration" id="slot20" value="20">
+        <label class="form-check-label" for="slot20">20 min</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="slotDuration" id="slot15" value="15">
+        <label class="form-check-label" for="slot15">15 min</label>
+      </div>
+    </div>
+    <div class="or-line">
+      <span class="or-text">OR</span>
+    </div>
+    <h2 class="smaller-heading">Select a future date:</h2>
+    <div class="mb-3 input-group" id="datepickerContainer">
+      <input type="date" class="form-control" id="datepicker" value="2023-06-13">
+      <div class="input-group-append">
+        <span class="input-group-text" id="datepickerIcon">
+          <i class="bi bi-calendar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+            </svg></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="flex-container">
+      <div class="flex-item">10:00 AM</div>
+      <div class="flex-item">02:20 AM</div>
+      <div class="flex-item">03:30 PM</div>
+      <div class="flex-item">05:10 PM</div>
+      <div class="flex-item">10:00 AM</div>
+      <div class="flex-item">02:20 AM</div>
+      <div class="flex-item">03:30 PM</div>
+      <div class="flex-item">05:10 PM</div>
+      <div class="flex-item">10:00 AM</div>
+      <div class="flex-item">02:20 AM</div>
+      <div class="flex-item">03:30 PM</div>
+      <div class="flex-item">05:10 PM</div>
+      <div class="flex-item">10:00 AM</div>
+      <div class="flex-item">02:20 AM</div>
+      <div class="flex-item">03:30 PM</div>
+      <div class="flex-item">05:10 PM</div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+      });
+  
+      $('#datepickerIcon').click(function() {
+        $('#datepicker').datepicker('show');
+      });
+    });
+  </script>
+</body>
+</html>
